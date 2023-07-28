@@ -4,47 +4,39 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import SRMain from './pantallas/SRMain';
-
-function PrincipalScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Principal</Text>
-      <Button
-        title="Ir a ajustes"
-        onPress={() => navigation.navigate('Ajustes')}
-      />
-    </View>
-  );
-}
-
-function AjustesScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Ajustes</Text>
-      <Button
-        title="Ir a perfil"
-        onPress={() => navigation.navigate('Perfil')}
-      />
-    </View>
-  );
-}
-
-function PerfilScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Perfil</Text>
-      <Button
-        title="Ir a principal"
-        onPress={() => navigation.navigate('Principal')}
-      />
-    </View>
-  );
-}
+import SRAdd from './pantallas/SRAdd';
+import SRRead from './pantallas/SRRead';
+import SRUpdate from './pantallas/SRUpdate';
+import SRDelete from './pantallas/SRDelete';
 
 
 function MainScreen() {
   return (
     <SRMain/>
+  );
+}
+
+function AddScreen() {
+  return (
+    <SRAdd/>
+  );
+}
+
+function ReadScreen() {
+  return (
+    <SRRead/>
+  );
+}
+
+function UpdateScreen() {
+  return (
+    <SRUpdate/>
+  );
+}
+
+function DeleteScreen() {
+  return (
+    <SRDelete/>
   );
 }
 
@@ -55,10 +47,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Principal" component={PrincipalScreen} />
-        <Tab.Screen name="Ajustes" component={AjustesScreen} />
-        <Tab.Screen name="Perfil" component={PerfilScreen} />
         <Tab.Screen name="Producto" component={MainScreen} />
+        <Tab.Screen name="Agregar" component={AddScreen} />
+        <Tab.Screen name="Ver" component={ReadScreen} />
+        <Tab.Screen name="Actualizar" component={UpdateScreen} />
+        <Tab.Screen name="Eliminar" component={DeleteScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

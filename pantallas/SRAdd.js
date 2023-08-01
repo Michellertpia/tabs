@@ -1,6 +1,8 @@
 import React from 'react';
 import {useState} from 'react'
-import {View, StyleSheet, TextInput} from 'react-native';
+import {View, StyleSheet, TextInput, Button} from 'react-native';
+import { db } from '../Server/Conexion';
+import { collection, addDoc } from "firebase/firestore";
 
 
 const SRAdd = () => {
@@ -32,8 +34,14 @@ const SRAdd = () => {
         console.log(elementos)
         }
 
+        function mostrar (){
+        alert ("El producto esta añadido");
+        }
+
     return (
         <View style={styles.Contenedor}>
+
+       <Button title="Leer" onPress={()=>mostrar()}>Alerta</Button>
 
         <TextInput
         style={styles.input}

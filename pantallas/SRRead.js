@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react'
-import {View, StyleSheet, TextInput} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 
 
 const SRRead = () => {
@@ -17,31 +17,36 @@ const SRRead = () => {
           borderWidth: 1,
           padding: 10,
         },
+        Sec:{
+          textAlign: 'center', 
+          fontWeight: 'bold',
+      },
+      Titulo: {
+          fontWeight: 'bold',
+          fontSize: 30,
+          
+      }
       });
 
 
+      const [productos]=useState(["Guantes", "Tinte castaño", "Shampoo", "Acondicionador", "Papel punta"])
+
+
+
     return (
-        <View style={styles.Contenedor}>
-
-        <TextInput
-        style={styles.input}
-        placeholder="Producto"
-        />
-
-        <TextInput
-        style={styles.input}
-        placeholder="Precio"
-        />
-
-        <TextInput
-        style={styles.input}
-        placeholder="Existencia"
-        onChangeText={(value)=>capturar('existencia',value)}
-        />
-
-
-        </View>
+      <ScrollView style={styles.Sec}>
+      <Text  style={styles.Titulo} >Leer información</Text>
+      {
+      productos.map(producto=>{
+          return(
+              <View style={styles.Contenedor}>
+              <Text style={styles.Titulo}>{producto}</Text>
+              </View>
+          );
+      })
+      }
+      </ScrollView>
       )
-}
+    }
 
 export default SRRead
